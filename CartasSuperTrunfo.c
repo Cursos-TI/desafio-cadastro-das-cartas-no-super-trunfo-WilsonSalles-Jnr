@@ -23,7 +23,7 @@ int main()
     char cidade[20], cidade_2[20];
     char codigoCarta[3], codigoCarta_2[3];
     int populacao, pontosTuristicos, populacao_2, pontosTuristicos_2;
-    float area, pib, area_2, pib_2;
+    float area, pib, superPoder, area_2, pib_2, superPoder_2;
 
     printf("Digite os dados da primeira carta\n");
 
@@ -44,6 +44,7 @@ int main()
 
     float densidade = populacao / area;
     float pibPerCapita = (pib / populacao) * 1000000000;
+    superPoder = populacao + pontosTuristicos + area + pib + densidade + pibPerCapita;
 
     printf("Estado: %c\nCódigo: %s\nNome da Cidade: %s\nPopulação: %i\nÁrea: %.2f KM²\nPIB: %.2f Bilhões de reais\nNúmero de Pontos Turísticos: %i\nDensidade: %.2f hab/km²\nPIB per Capita: %.2f reais", estado, codigoCarta, cidade, populacao, area, pib, pontosTuristicos, densidade, pibPerCapita);
 
@@ -66,8 +67,19 @@ int main()
 
     float densidade_2 = populacao_2 / area_2;
     float pibPerCapita_2 = (pib_2 / populacao_2) * 1000000000;
+    superPoder_2 = populacao_2 + pontosTuristicos_2 + area_2 + pib_2 + densidade_2 + pibPerCapita_2;
 
-    printf("Estado: %c\nCódigo: %s\nNome da Cidade: %s\nPopulação: %i\nÁrea: %.2f KM²\nPIB: %.2f Bilhões de reais\nNúmero de Pontos Turísticos: %i\nDensidade: %.2f hab/km²\nPIB per Capita: %.2f reais", estado_2, codigoCarta_2, cidade_2, populacao_2, area_2, pib_2, pontosTuristicos_2, densidade_2, pibPerCapita_2);
+    printf("Estado: %c\nCódigo: %s\nNome da Cidade: %s\nPopulação: %i\nÁrea: %.2f KM²\nPIB: %.2f Bilhões de reais\nNúmero de Pontos Turísticos: %i\nDensidade: %.2f hab/km²\nPIB per Capita: %.2f reais\n", estado_2, codigoCarta_2, cidade_2, populacao_2, area_2, pib_2, pontosTuristicos_2, densidade_2, pibPerCapita_2);
+
+    printf("Comparação de Cartas:\n");
+
+    printf("Maior população: %dª Carta\n", (populacao_2 > populacao) + 1);
+    printf("Maior pontos turísticos: %dª Carta\n", (pontosTuristicos_2 > pontosTuristicos) + 1);
+    printf("Maior área: %dª Carta\n", (area_2 > area) + 1);
+    printf("Maior PIB: %dª Carta\n", (pib_2 > pib) + 1);
+    printf("Menor densidade: %dª Carta\n", (densidade > densidade_2) + 1);
+    printf("Maior PIB per Capita: %dª Carta\n", (pibPerCapita_2 > pibPerCapita) + 1);
+    printf("Maior Super Poder: %dª Carta\n", (superPoder_2 > superPoder) + 1);
 
     return 0;
 }
