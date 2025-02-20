@@ -92,47 +92,68 @@ int main()
   int compararSuperPoder = superPoder_2 > superPoder;
 
   scanf("%i", &opcao);
-  char defaultMessage[50] = "Carta %i (%s) venceu!";
+  char defaultMessage[100] = "Carta 1: %s\t\tCarta 2:%s\nAtributo selecionado: %s\nCarta 1: %d\t\tCarta 2: %d\n";
 
-  int comparador;
+  int valor_1;
+  int valor_2;
+  int invalido = 0;
 
-  if (opcao == 2)
+  switch (opcao)
   {
-    comparador = compararPontosTuristicos;
+  case 1:
+    valor_1 = populacao;
+    valor_2 = populacao_2;
+    printf(defaultMessage, cidade, cidade_2, "População", valor_1, valor_2);
+    break;
+  case 2:
+    valor_1 = pontosTuristicos;
+    valor_2 = pontosTuristicos_2;
+    printf(defaultMessage, cidade, cidade_2, "Pontos Turísticos", valor_1, valor_2);
+    break;
+  case 3:
+    valor_1 = area;
+    valor_2 = area_2;
+    printf(defaultMessage, cidade, cidade_2, "Área", valor_1, valor_2);
+    break;
+  case 4:
+    valor_1 = pib;
+    valor_2 = pib_2;
+    printf(defaultMessage, cidade, cidade_2, "PIB", valor_1, valor_2);
+    break;
+  case 5:
+    valor_1 = pibPerCapita;
+    valor_2 = pibPerCapita_2;
+    printf(defaultMessage, cidade, cidade_2, "PIB per capita", valor_1, valor_2);
+    break;
+  case 6:
+    valor_1 = densidade_2;
+    valor_2 = densidade;
+    printf(defaultMessage, cidade, cidade_2, "Densidade", valor_2, valor_1);
+    break;
+  case 7:
+    valor_1 = superPoder;
+    valor_2 = superPoder_2;
+    printf(defaultMessage, cidade, cidade_2, "Super poder", valor_1, valor_2);
+    break;
+  default:
+    invalido = 1;
   }
-  else if (opcao == 3)
+
+  if (invalido)
   {
-    comparador = compararArea;
+    printf("Operação inválida");
   }
-  else if (opcao == 4)
+  else if (valor_1 > valor_2)
   {
-    comparador = compararPib;
+    printf("Carta vencedora: 1");
   }
-  else if (opcao == 5)
+  else if (valor_1 < valor_2)
   {
-    comparador = compararPibPerCapita;
-  }
-  else if (opcao == 6)
-  {
-    comparador = compararDensidade;
-  }
-  else if (opcao == 7)
-  {
-    comparador = compararSuperPoder;
+    printf("Carta vencedora 2");
   }
   else
   {
-    printf("\nNenhuma opção válida foi selecionada, por padrão será comparada por população:\n");
-    comparador = compararPopulacao;
-  }
-
-  if (comparador)
-  {
-    printf(defaultMessage, 2, cidade_2);
-  }
-  else
-  {
-    printf(defaultMessage, 1, cidade);
+    printf("Empate!");
   }
 
   return 0;
